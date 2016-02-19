@@ -16,7 +16,7 @@
 		49240A0D1AD9106200371097 /* ThreeDimensionalCollectionViewLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49240A0C1AD9106200371097 /* ThreeDimensionalCollectionViewLayoutDemoTests.m */; };
 		49240A1A1AD910B500371097 /* AppThumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49240A171AD910B500371097 /* AppThumCollectionViewCell.swift */; };
 		49240A1B1AD910B500371097 /* AppThumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49240A181AD910B500371097 /* AppThumCollectionViewCell.xib */; };
-		49240A1C1AD910B500371097 /* ThreeDimensionalCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49240A191AD910B500371097 /* ThreeDimensionalCollectionViewLayout.swift */; };
+		4CD607DF1C771169009BE5F7 /* ThreeDimensionalCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD607DE1C771169009BE5F7 /* ThreeDimensionalCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		49240A161AD910B400371097 /* ThreeDimensionalCollectionViewLayoutDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThreeDimensionalCollectionViewLayoutDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		49240A171AD910B500371097 /* AppThumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppThumCollectionViewCell.swift; sourceTree = "<group>"; };
 		49240A181AD910B500371097 /* AppThumCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppThumCollectionViewCell.xib; sourceTree = "<group>"; };
-		49240A191AD910B500371097 /* ThreeDimensionalCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDimensionalCollectionViewLayout.swift; sourceTree = "<group>"; };
+		4CD607DE1C771169009BE5F7 /* ThreeDimensionalCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDimensionalCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +88,7 @@
 		492409EF1AD9106200371097 /* ThreeDimensionalCollectionViewLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4CD607DD1C771169009BE5F7 /* Sources */,
 				492409F41AD9106200371097 /* AppDelegate.h */,
 				492409F51AD9106200371097 /* AppDelegate.m */,
 				492409F71AD9106200371097 /* ViewController.h */,
@@ -95,7 +96,6 @@
 				492409FA1AD9106200371097 /* Main.storyboard */,
 				49240A171AD910B500371097 /* AppThumCollectionViewCell.swift */,
 				49240A181AD910B500371097 /* AppThumCollectionViewCell.xib */,
-				49240A191AD910B500371097 /* ThreeDimensionalCollectionViewLayout.swift */,
 				492409FD1AD9106200371097 /* Images.xcassets */,
 				492409FF1AD9106200371097 /* LaunchScreen.xib */,
 				492409F01AD9106200371097 /* Supporting Files */,
@@ -128,6 +128,14 @@
 				49240A0B1AD9106200371097 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CD607DD1C771169009BE5F7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4CD607DE1C771169009BE5F7 /* ThreeDimensionalCollectionViewLayout.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +182,8 @@
 		492409E51AD9106200371097 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = MichaelMou;
 				TargetAttributes = {
@@ -234,7 +244,7 @@
 				49240A1A1AD910B500371097 /* AppThumCollectionViewCell.swift in Sources */,
 				492409F91AD9106200371097 /* ViewController.m in Sources */,
 				492409F61AD9106200371097 /* AppDelegate.m in Sources */,
-				49240A1C1AD910B500371097 /* ThreeDimensionalCollectionViewLayout.swift in Sources */,
+				4CD607DF1C771169009BE5F7 /* ThreeDimensionalCollectionViewLayout.swift in Sources */,
 				492409F31AD9106200371097 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
