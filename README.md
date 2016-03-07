@@ -11,4 +11,4 @@ to display a collectionView what is 3-dimensional
 
 ##### look at this gif
 
-![Sample app](https://raw.githubusercontent.com/michaelmou/ThreeDimensionalCollectionViewLayoutDemo/3d-collectionViewLayout/Raw/gif/3dlayoutgif.gif)
+![Sample app](https://raw.githubusercontent.com/michaelmou/ThreeDimensionalCollectionViewLayoutDemo/3d-collectionViewLayout/Raw/gif/preview.gif)
