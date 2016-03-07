@@ -10,14 +10,6 @@ import UIKit
 
 class AppThumCollectionViewCell: UICollectionViewCell {
 
-    var image:UIImage?{
-        set{
-            self.imageView.image = newValue
-        }
-        get{
-            return self.imageView.image
-        }
-    }
     @IBOutlet var imageView: UIImageView!
     
     override func awakeFromNib() {

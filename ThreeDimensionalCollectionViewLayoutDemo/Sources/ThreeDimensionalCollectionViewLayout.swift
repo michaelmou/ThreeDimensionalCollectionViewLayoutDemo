@@ -11,10 +11,10 @@ import UIKit
 
 @objc class ThreeDimensionalCollectionViewLayout: UICollectionViewLayout {
     
-    var images:Array<UIImage>!
-    private var spacingOfInteritem:CGFloat = 50
+    var images:[UIImage]!
+    private var spacingOfInterItem:CGFloat = 50
     private let defaultWidthOfItem:CGFloat = CGRectGetWidth(UIScreen.mainScreen().bounds)/3.2
-    private let zoom_factor:CGFloat = 0.3
+    private let zoomFactor:CGFloat = 0.3
     private let inset:UIEdgeInsets = UIEdgeInsetsMake(-30, CGRectGetWidth(UIScreen.mainScreen().bounds)/4 as CGFloat, 0, CGRectGetWidth(UIScreen.mainScreen().bounds)/4 as CGFloat)
     private let distanceLimitted:CGFloat = CGRectGetWidth(UIScreen.mainScreen().bounds)/2.7826
 
@@ -23,12 +23,12 @@ import UIKit
         if let numberOfItem = self.collectionView?.numberOfItemsInSection(0){
             
             var size = CGSizeZero
-            for index in 0...numberOfItem-1 {
+            for index in 0..<numberOfItem{
                 let attributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0))
-                size.width += spacingOfInteritem
+                size.width += spacingOfInterItem
                 size.width += attributes!.size.width
             }
-            size.width += spacingOfInteritem + inset.left + inset.right
+            size.width += spacingOfInterItem + inset.left + inset.right
             size.height = CGRectGetHeight(self.collectionView!.bounds)
             
             return size;
@@ -56,12 +56,12 @@ import UIKit
             attributes.size = imageOfCurrent.size;
         }
         
-        var positionX:CGFloat = spacingOfInteritem + inset.left
+        var positionX:CGFloat = spacingOfInterItem + inset.left
         if indexPath.row > 0 {
             for _ in 1...indexPath.row{
                 let sizeOfItem = attributes.size
                 positionX += sizeOfItem.width
-                positionX += spacingOfInteritem
+                positionX += spacingOfInterItem
             }
         }
         attributes.frame.origin.x = positionX
@@ -77,7 +77,7 @@ import UIKit
 //        calculated the value of distance from the attribute to visibleRect center
         let distance = CGRectGetMidX(visibleRect!) - attributes.center.x
         let normalizedDistance = distance / activeDistance
-        let zoom:CGFloat = 1 + self.zoom_factor * (1 - abs(normalizedDistance))
+        let zoom:CGFloat = 1 + self.zoomFactor * (1 - abs(normalizedDistance))
         attributes.transform3D = CATransform3DMakeScale(zoom, zoom, 1.0)
         
 //        tranfsorm to display 3d effect
@@ -121,7 +121,7 @@ import UIKit
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributesArray = [UICollectionViewLayoutAttributes]()
         let numberOfSections = self.collectionView!.numberOfSections()
-        for i in 0...numberOfSections-1{
+        for i in 0..<numberOfSections{
             let numberOfCellsInSection:Int = self.collectionView!.numberOfItemsInSection(i)
             for j in 0...numberOfCellsInSection-1{
                 let indexPath = NSIndexPath(forItem: j, inSection: i)
@@ -140,18 +140,23 @@ import UIKit
         let horizontalCenter:CGFloat = proposedContentOffset.x + (CGRectGetWidth(self.collectionView!.bounds) / 2.0)
         
         let targetRect:CGRect = CGRectMake(proposedContentOffset.x, 0.0, self.collectionView!.bounds.size.width, self.collectionView!.bounds.size.height)
-        let array:Array = self.layoutAttributesForElementsInRect(targetRect)!
-        
-        for layoutAttributes in array{
+        if let array:Array = self.layoutAttributesForElementsInRect(targetRect){
             
-            let itemHorizontalCenter:CGFloat = layoutAttributes.center.x;
-            let a = abs(itemHorizontalCenter - horizontalCenter)
-            let b = abs(offsetAdjustment)
-            if a < b {
-                offsetAdjustment = itemHorizontalCenter - horizontalCenter
+            for layoutAttributes in array{
+                
+                let itemHorizontalCenter:CGFloat = layoutAttributes.center.x;
+                let a = abs(itemHorizontalCenter - horizontalCenter)
+                let b = abs(offsetAdjustment)
+                if a < b {
+                    offsetAdjustment = itemHorizontalCenter - horizontalCenter
+                }
+                
             }
-        
+            
+            return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y)
         }
-        return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y);
+        
+        return CGPointZero
+        
     }
 }
